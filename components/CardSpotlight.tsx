@@ -15,7 +15,7 @@ export function CardSpotlight({ children, className = '' }: { children: React.Re
 
     return (
         <div
-            className={`group relative border border-white/10 bg-white/[0.02] overflow-hidden ${className}`}
+            className={`group relative border border-border bg-surface/[0.02] overflow-hidden ${className}`}
             onMouseMove={handleMouseMove}
         >
             <motion.div
@@ -24,7 +24,7 @@ export function CardSpotlight({ children, className = '' }: { children: React.Re
                     background: useMotionTemplate`
             radial-gradient(
               650px circle at ${mouseX}px ${mouseY}px,
-              rgba(0, 172, 193, 0.15),
+              rgba(124, 58, 237, 0.15),
               transparent 80%
             )
           `,
