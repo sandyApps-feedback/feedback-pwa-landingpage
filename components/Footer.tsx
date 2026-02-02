@@ -4,25 +4,25 @@ import React from 'react';
 
 export const Footer = () => {
     return (
-        <footer className='bg-[#020202] border-t border-white/5 pt-20 pb-10'>
+        <footer className='bg-background border-t border-border pt-20 pb-10'>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
                 <div className='flex flex-col md:flex-row justify-between items-start mb-16'>
                     <div className='mb-10 md:mb-0'>
-                        <span className='text-2xl font-bold text-white tracking-tighter'>
+                        <span className='text-2xl font-bold text-foreground tracking-tighter'>
                             SAPP
                         </span>
-                        <p className='text-gray-500 mt-4 max-w-xs font-light'>
+                        <p className='text-muted mt-4 max-w-xs font-light'>
                             Setting the standard for educational event intelligence and
                             credentialing.
                         </p>
                     </div>
                     <div className='flex gap-16 flex-wrap'>
                         <div>
-                            <h4 className='text-white font-bold mb-6 text-xs uppercase tracking-widest'>
+                            <h4 className='text-foreground font-bold mb-6 text-xs uppercase tracking-widest'>
                                 Platform
                             </h4>
-                            <ul className='space-y-3 text-sm text-gray-500 font-light'>
-                                {['Features', 'Pricing', 'API', 'Status'].map((l) => (
+                            <ul className='space-y-3 text-sm text-muted font-light'>
+                                {['Features', 'Pricing', 'Contact'].map((l) => (
                                     <li key={l}>
                                         <a
                                             href={`#${l.toLowerCase()}`}
@@ -34,36 +34,8 @@ export const Footer = () => {
                                                     element.scrollIntoView({ behavior: 'smooth' });
                                                 }
                                             }}
-                                            className='hover:text-white transition-colors'
+                                            className='hover:text-foreground transition-colors'
                                         >
-                                            {l}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className='text-white font-bold mb-6 text-xs uppercase tracking-widest'>
-                                Company
-                            </h4>
-                            <ul className='space-y-3 text-sm text-gray-500 font-light'>
-                                {['About', 'Manifesto', 'Careers', 'Contact'].map((l) => (
-                                    <li key={l}>
-                                        <a href='#' className='hover:text-white transition-colors'>
-                                            {l}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className='text-white font-bold mb-6 text-xs uppercase tracking-widest'>
-                                Legal
-                            </h4>
-                            <ul className='space-y-3 text-sm text-gray-500 font-light'>
-                                {['Privacy', 'Terms', 'Security'].map((l) => (
-                                    <li key={l}>
-                                        <a href='#' className='hover:text-white transition-colors'>
                                             {l}
                                         </a>
                                     </li>
@@ -72,18 +44,23 @@ export const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className='border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center'>
-                    <p className='text-gray-600 text-xs font-mono'>
-                        © 2025 SAPP INC. ALL RIGHTS RESERVED.
+                <div className='border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center'>
+                    <p className='text-muted/60 text-xs font-mono'>
+                        © 2026 SAPP INC. ALL RIGHTS RESERVED.
                     </p>
                     <div className='flex space-x-6 mt-4 md:mt-0'>
-                        {['Twitter', 'LinkedIn', 'GitHub'].map((social) => (
+                        {[
+                            { name: 'FaceBook', url: 'https://www.facebook.com/sandyappsco' },
+                            { name: 'LinkedIn', url: 'https://pk.linkedin.com/company/sandyapps' }
+                        ].map((social) => (
                             <a
-                                key={social}
-                                href='#'
-                                className='text-gray-600 hover:text-white transition-colors text-xs uppercase tracking-wider'
+                                key={social.name}
+                                href={social.url}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='text-muted/60 hover:text-foreground transition-colors text-xs uppercase tracking-wider'
                             >
-                                {social}
+                                {social.name}
                             </a>
                         ))}
                     </div>

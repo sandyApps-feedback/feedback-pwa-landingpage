@@ -6,7 +6,7 @@ export const LogosStrip = () => {
     return (
         <div className='w-full py-10 bg-[#050505] border-y border-white/5'>
             <div className='max-w-7xl mx-auto px-4 flex justify-between items-center opacity-30 grayscale hover:grayscale-0 transition-all duration-700'>
-                {['MICROSOFT', 'GOOGLE', 'HARVARD', 'STANFORD', 'MIT'].map(
+                {['PNY', 'Peak Solution', 'STANFORD'].map(
                     (logo, i) => (
                         <span
                             key={i}

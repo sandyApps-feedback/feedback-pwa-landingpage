@@ -41,8 +41,9 @@ export const Pricing = () => {
                                 )
                             )}
                         </ul>
-                        <button className='w-full py-4 rounded-xl border border-white/10 text-white text-sm font-bold tracking-wide hover:bg-white/5 transition-colors'>
-                            START FREE
+                        <button className='group relative w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-bold tracking-wide hover:scale-[1.02] transition-all shadow-lg hover:shadow-purple-500/50 overflow-hidden cursor-pointer'>
+                            <span className='relative z-10'>START FREE</span>
+                            <div className='absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                         </button>
                     </div>
 
@@ -83,8 +84,9 @@ export const Pricing = () => {
                                 </li>
                             ))}
                         </ul>
-                        <button className='w-full py-4 rounded-xl bg-gradient-to-r from-[#F59E0B] to-[#b47d1f] text-black text-sm font-bold tracking-wide hover:shadow-[0_0_20px_rgba(245,158,11,0.3)] transition-all'>
-                            GET ACCESS
+                        <button className='group relative w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-bold tracking-wide hover:scale-[1.02] transition-all shadow-lg hover:shadow-purple-500/50 overflow-hidden cursor-pointer'>
+                            <span className='relative z-10'>GET ACCESS</span>
+                            <div className='absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                         </button>
                     </motion.div>
 
@@ -107,8 +109,9 @@ export const Pricing = () => {
                                 </li>
                             ))}
                         </ul>
-                        <button className='w-full py-4 rounded-xl border border-white/10 text-white text-sm font-bold tracking-wide hover:bg-white/5 transition-colors'>
-                            CONTACT US
+                        <button className='group relative w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-bold tracking-wide hover:scale-[1.02] transition-all shadow-lg hover:shadow-purple-500/50 overflow-hidden cursor-pointer'>
+                            <span className='relative z-10'>CONTACT US</span>
+                            <div className='absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                         </button>
                     </div>
                 </div>

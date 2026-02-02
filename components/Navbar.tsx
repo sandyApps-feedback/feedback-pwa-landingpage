@@ -25,7 +25,7 @@ export const Navbar = () => {
     return (
         <nav
             className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${scrolled
-                ? 'bg-[#050505]/80 border-white/10 backdrop-blur-xl py-3'
+                ? 'bg-background/80 border-border backdrop-blur-xl py-3'
                 : 'bg-transparent border-transparent py-6'
                 }`}
         >
@@ -36,9 +36,9 @@ export const Navbar = () => {
                         className='flex-shrink-0 flex items-center gap-3 cursor-pointer group'
                     >
                         <div className='relative w-10 h-10 flex items-center justify-center'>
-                            <div className='absolute inset-0 bg-gradient-to-tr from-[#003366] to-[#00ACC1] rounded-xl rotate-6 group-hover:rotate-12 transition-transform duration-500 opacity-80 blur-[2px]'></div>
-                            <div className='absolute inset-0 bg-[#0a0a0a] border border-white/20 rounded-xl flex items-center justify-center z-10'>
-                                <span className='font-serif italic font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00ACC1]'>
+                            <div className='absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-xl rotate-6 group-hover:rotate-12 transition-transform duration-500 opacity-80 blur-[2px]'></div>
+                            <div className='absolute inset-0 bg-surface border border-white/10 rounded-xl flex items-center justify-center z-10'>
+                                <span className='font-serif italic font-bold text-transparent bg-clip-text bg-gradient-to-r from-foreground to-primary'>
                                     S
                                 </span>
                             </div>
@@ -48,19 +48,24 @@ export const Navbar = () => {
                         </span>
                     </div>
                     <div className='hidden md:flex space-x-10 items-center'>
-                        {['Features', 'Showcase', 'Pricing', 'Testimonials'].map((item) => (
+                        {['Features', 'Showcase', 'Pricing', 'Contact'].map((item) => (
                             <a
                                 key={item}
                                 href={`#${item.toLowerCase()}`}
                                 onClick={(e) => scrollToSection(e, item.toLowerCase())}
-                                className='text-sm font-medium text-gray-400 hover:text-white transition-colors tracking-wide'
+                                className='text-sm font-medium text-muted hover:text-foreground transition-colors tracking-wide'
                             >
                                 {item}
                             </a>
                         ))}
-                        <button className='relative px-6 py-2.5 overflow-hidden rounded-full group bg-white/5 border border-white/10 hover:border-[#F59E0B]/50 transition-colors'>
-                            <span className='absolute inset-0 w-full h-full bg-gradient-to-r from-[#00ACC1]/20 to-[#003366]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></span>
-                            <span className='relative text-sm font-medium text-white group-hover:text-[#F59E0B] transition-colors'>
+                        <button
+                            onClick={() => {
+                                window.open('https://sapp.feedbackcert.com/', '_blank');
+                            }}
+                            className='relative px-6 py-2.5 overflow-hidden rounded-full group bg-white/5 border border-white/10 hover:border-accent/50 transition-colors cursor-pointer'
+                        >
+                            <span className='absolute inset-0 w-full h-full bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></span>
+                            <span className='relative text-sm font-medium text-foreground group-hover:text-accent transition-colors'>
                                 Get Started
                             </span>
                         </button>
@@ -68,7 +73,7 @@ export const Navbar = () => {
                     <div className='md:hidden'>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className='text-white p-2'
+                            className='text-foreground p-2'
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
@@ -83,10 +88,10 @@ export const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className='md:hidden bg-[#050505] border-b border-white/10 overflow-hidden backdrop-blur-xl'
+                        className='md:hidden bg-background border-b border-border overflow-hidden backdrop-blur-xl'
                     >
                         <div className='px-4 pt-4 pb-8 space-y-2'>
-                            {['Features', 'Showcase', 'Pricing', 'Testimonials'].map(
+                            {['Features', 'Showcase', 'Pricing', 'Contact'].map(
                                 (item) => (
                                     <a
                                         key={item}
@@ -95,7 +100,7 @@ export const Navbar = () => {
                                             setIsOpen(false);
                                             scrollToSection(e, item.toLowerCase());
                                         }}
-                                        className='block px-4 py-3 text-base font-medium text-gray-300 hover:bg-white/5 rounded-lg hover:text-white transition-colors'
+                                        className='block px-4 py-3 text-base font-medium text-muted hover:bg-white/5 rounded-lg hover:text-foreground transition-colors'
                                     >
                                         {item}
                                     </a>
