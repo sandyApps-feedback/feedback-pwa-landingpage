@@ -15,9 +15,9 @@ export const Navbar = () => {
     }, []);
 
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-        e.preventDefault();
         const element = document.getElementById(id);
         if (element) {
+            e.preventDefault();
             element.scrollIntoView({ behavior: 'smooth' });
         }
     };
@@ -51,7 +51,7 @@ export const Navbar = () => {
                         {['Features', 'Showcase', 'Pricing', 'Contact'].map((item) => (
                             <a
                                 key={item}
-                                href={`#${item.toLowerCase()}`}
+                                href={`/#${item.toLowerCase()}`}
                                 onClick={(e) => scrollToSection(e, item.toLowerCase())}
                                 className='text-sm font-medium text-muted hover:text-foreground transition-colors tracking-wide'
                             >
@@ -95,7 +95,7 @@ export const Navbar = () => {
                                 (item) => (
                                     <a
                                         key={item}
-                                        href={`#${item.toLowerCase()}`}
+                                        href={`/#${item.toLowerCase()}`}
                                         onClick={(e) => {
                                             setIsOpen(false);
                                             scrollToSection(e, item.toLowerCase());
