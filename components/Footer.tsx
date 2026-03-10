@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 export const Footer = () => {
     return (
@@ -22,10 +23,10 @@ export const Footer = () => {
                                 Platform
                             </h4>
                             <ul className='space-y-3 text-sm text-muted font-light'>
-                                {['Features', 'Pricing', 'Contact'].map((l) => (
+                                {['Features', 'Showcase', 'Pricing', 'Contact'].map((l) => (
                                     <li key={l}>
                                         <a
-                                            href={`#${l.toLowerCase()}`}
+                                            href={`/#${l.toLowerCase()}`}
                                             onClick={(e) => {
                                                 const id = l.toLowerCase();
                                                 const element = document.getElementById(id);
@@ -40,6 +41,28 @@ export const Footer = () => {
                                         </a>
                                     </li>
                                 ))}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className='text-foreground font-bold mb-6 text-xs uppercase tracking-widest'>
+                                Legal
+                            </h4>
+                            <ul className='space-y-3 text-sm text-muted font-light'>
+                                <li>
+                                    <Link href='/term-conditions' className='hover:text-foreground transition-colors'>
+                                        Terms & Conditions
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href='/privacy-policy' className='hover:text-foreground transition-colors'>
+                                        Privacy Policy
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href='/refund-policy' className='hover:text-foreground transition-colors'>
+                                        Refund Policy
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                     </div>
