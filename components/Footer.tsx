@@ -2,6 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Facebook, Linkedin, Mail } from 'lucide-react';
+import { FOOTER_CONTENT } from '../constants/landing-page/footer';
+import { EmailLink } from './EmailLink';
 
 export const Footer = () => {
     return (
@@ -10,26 +13,28 @@ export const Footer = () => {
                 <div className='flex flex-col md:flex-row justify-between items-start mb-16'>
                     <div className='mb-10 md:mb-0'>
                         <span className='text-2xl font-bold text-foreground tracking-tighter'>
-                            SAPP
+                            {FOOTER_CONTENT.brand.name}
                         </span>
-                        <p className='text-muted mt-4 max-w-xs font-light'>
-                            Setting the standard for educational event intelligence and
-                            credentialing.
+                        <p className='text-muted mt-4 max-w-xs font-light mb-4'>
+                            {FOOTER_CONTENT.brand.description}
                         </p>
+                        <div className='inline-flex items-center gap-2 text-muted hover:text-primary transition-colors text-sm font-medium'>
+                            <Mail size={16} />
+                            <EmailLink email="support@feedbackcert.com" className="hover:underline" />
+                        </div>
                     </div>
                     <div className='flex gap-16 flex-wrap'>
                         <div>
                             <h4 className='text-foreground font-bold mb-6 text-xs uppercase tracking-widest'>
-                                Platform
+                                {FOOTER_CONTENT.sections[0].title}
                             </h4>
                             <ul className='space-y-3 text-sm text-muted font-light'>
-                                {['Features', 'Showcase', 'Pricing', 'Contact'].map((l) => (
-                                    <li key={l}>
+                                {FOOTER_CONTENT.sections[0].links.map((l) => (
+                                    <li key={l.name}>
                                         <a
-                                            href={`/#${l.toLowerCase()}`}
+                                            href={`/#${(l as { name: string; targetId: string }).targetId}`}
                                             onClick={(e) => {
-                                                const id = l.toLowerCase();
-                                                const element = document.getElementById(id);
+                                                const element = document.getElementById((l as { name: string; targetId: string }).targetId as string);
                                                 if (element) {
                                                     e.preventDefault();
                                                     element.scrollIntoView({ behavior: 'smooth' });
@@ -37,7 +42,7 @@ export const Footer = () => {
                                             }}
                                             className='hover:text-foreground transition-colors'
                                         >
-                                            {l}
+                                            {l.name}
                                         </a>
                                     </li>
                                 ))}
@@ -45,45 +50,36 @@ export const Footer = () => {
                         </div>
                         <div>
                             <h4 className='text-foreground font-bold mb-6 text-xs uppercase tracking-widest'>
-                                Legal
+                                {FOOTER_CONTENT.sections[1].title}
                             </h4>
                             <ul className='space-y-3 text-sm text-muted font-light'>
-                                <li>
-                                    <Link href='/term-conditions' className='hover:text-foreground transition-colors'>
-                                        Terms & Conditions
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href='/privacy-policy' className='hover:text-foreground transition-colors'>
-                                        Privacy Policy
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href='/refund-policy' className='hover:text-foreground transition-colors'>
-                                        Refund Policy
-                                    </Link>
-                                </li>
+                                {FOOTER_CONTENT.sections[1].links.map((l) => (
+                                    <li key={l.name}>
+                                        <Link href={(l as { name: string; href: string }).href as string} className='hover:text-foreground transition-colors'>
+                                            {l.name}
+                                        </Link>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div className='border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center'>
                     <p className='text-muted/60 text-xs font-mono'>
-                        © 2026 SAPP INC. ALL RIGHTS RESERVED.
+                        {FOOTER_CONTENT.copyright}
                     </p>
                     <div className='flex space-x-6 mt-4 md:mt-0'>
-                        {[
-                            { name: 'FaceBook', url: 'https://www.facebook.com/sandyappsco' },
-                            { name: 'LinkedIn', url: 'https://pk.linkedin.com/company/sandyapps' }
-                        ].map((social) => (
+                        {FOOTER_CONTENT.socials.map((social) => (
                             <a
                                 key={social.name}
                                 href={social.url}
                                 target='_blank'
                                 rel='noopener noreferrer'
-                                className='text-muted/60 hover:text-foreground transition-colors text-xs uppercase tracking-wider'
+                                className='text-muted/60 hover:text-foreground transition-colors'
+                                aria-label={social.name}
                             >
-                                {social.name}
+                                {social.name === 'FaceBook' && <Facebook size={20} />}
+                                {social.name === 'LinkedIn' && <Linkedin size={20} />}
                             </a>
                         ))}
                     </div>
