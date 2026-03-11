@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { NAVBAR_CONTENT } from '../constants/landing-page/navbar';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -39,16 +40,16 @@ export const Navbar = () => {
                             <div className='absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-xl rotate-6 group-hover:rotate-12 transition-transform duration-500 opacity-80 blur-[2px]'></div>
                             <div className='absolute inset-0 bg-surface border border-white/10 rounded-xl flex items-center justify-center z-10'>
                                 <span className='font-serif italic font-bold text-transparent bg-clip-text bg-gradient-to-r from-foreground to-primary'>
-                                    S
+                                    {NAVBAR_CONTENT.logo.initial}
                                 </span>
                             </div>
                         </div>
                         <span className='text-xl font-bold tracking-tight text-white group-hover:tracking-wide transition-all duration-500'>
-                            SAPP
+                            {NAVBAR_CONTENT.logo.text}
                         </span>
                     </div>
                     <div className='hidden md:flex space-x-10 items-center'>
-                        {['Features', 'Showcase', 'Pricing', 'Contact'].map((item) => (
+                        {NAVBAR_CONTENT.links.map((item) => (
                             <a
                                 key={item}
                                 href={`/#${item.toLowerCase()}`}
@@ -58,17 +59,17 @@ export const Navbar = () => {
                                 {item}
                             </a>
                         ))}
-                        <button
-                            onClick={() => {
-                                window.open('https://sapp.feedbackcert.com/', '_blank');
-                            }}
-                            className='relative px-6 py-2.5 overflow-hidden rounded-full group bg-white/5 border border-white/10 hover:border-accent/50 transition-colors cursor-pointer'
+                        <a
+                            href={NAVBAR_CONTENT.cta.href}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='relative px-6 py-2.5 overflow-hidden rounded-full group bg-white/5 border border-white/10 hover:border-accent/50 transition-colors cursor-pointer inline-flex items-center justify-center'
                         >
                             <span className='absolute inset-0 w-full h-full bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></span>
                             <span className='relative text-sm font-medium text-foreground group-hover:text-accent transition-colors'>
-                                Get Started
+                                {NAVBAR_CONTENT.cta.text}
                             </span>
-                        </button>
+                        </a>
                     </div>
                     <div className='md:hidden'>
                         <button
@@ -91,7 +92,7 @@ export const Navbar = () => {
                         className='md:hidden bg-background border-b border-border overflow-hidden backdrop-blur-xl'
                     >
                         <div className='px-4 pt-4 pb-8 space-y-2'>
-                            {['Features', 'Showcase', 'Pricing', 'Contact'].map(
+                            {NAVBAR_CONTENT.links.map(
                                 (item) => (
                                     <a
                                         key={item}

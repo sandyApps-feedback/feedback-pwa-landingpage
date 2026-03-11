@@ -3,45 +3,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, HelpCircle, MessageCircle } from 'lucide-react';
+import { FAQ_CONTENT } from '../constants/landing-page/faq';
 
 export const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-    const faqs = [
-        {
-            question: 'How does the feedback collection system work? ',
-            answer: 'Our platform allows you to create customizable surveys and forms using our intuitive builder. You can distribute them via email, links, or embed them directly on your website. Responses are collected in real-time and automatically analyzed with our powerful analytics dashboard.'
-        },
-        {
-            question: 'Can I customize the certificates for my institution?',
-            answer: 'Yes! You have full control over certificate design. You can add your institutions logo, customize colors, modify text templates, and even create multiple certificate templates for different events or courses.Certificates are automatically generated and can be downloaded as PDFs. '
-        },
-        {
-            question: 'What types of feedback forms can I create? ',
-            answer: 'You can create various types of forms including event feedback surveys, course evaluations, instructor assessments, student satisfaction surveys, and custom questionnaires. Our form builder supports multiple question types: multiple choice, rating scales, text responses, checkboxes, and more. '
-        },
-        {
-            question: 'Is my data secure and private? ',
-            answer: 'Absolutely. We use enterprise-grade encryption for all data transmission and storage. Your feedback data is stored securely and is only accessible to authorized users in your institution .'
-        },
-        {
-            question: 'How do I manage different user roles? ',
-            answer: 'Our platform supports three main roles: Admins (full system access), Instructors (can create and view their own events/surveys), and Students/Users (can provide feedback and view their certificates). You can easily assign roles and permissions through the admin dashboard.'
-        },
-        {
-            question: 'Can I export feedback data and reports? ',
-            answer: 'Yes! You can export all feedback data in multiple formats including CSV, Excel, and PDF. Our analytics dashboard also allows you to generate detailed reports with charts and graphs that can be downloaded or shared with stakeholders .'
-        },
-        {
-            question: 'What kind of support do you offer?',
-            answer: 'We provide 24/7 customer support via email and chat. Our comprehensive documentation and video tutorials help you get started quickly. Premium plans include dedicated account managers and priority support with faster response times. '
-        },
-        {
-            question: 'Is there a free trial available? ',
-            answer: 'Yes! We offer a 14-day free trial with full access to all features. No credit card required to start. You can explore the platform, create surveys, collect feedback, and generate certificates. After the trial, you can choose a plan that fits your institutions needs. '
-        }
-    ];
-
+    const faqs = FAQ_CONTENT.faqs;
     return (
         <section className='py-32 relative bg-gradient-to-b from-surface to-background overflow-hidden'>
             {/* Background Effects */}
@@ -61,17 +28,17 @@ export const FAQ = () => {
                     <div className='inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-md'>
                         <HelpCircle size={14} className='text-primary' />
                         <span className='text-primary text-xs font-bold tracking-[0.2em] uppercase'>
-                            Got Questions?
+                            {FAQ_CONTENT.header.badgeText}
                         </span>
                     </div>
                     <h2 className='text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight'>
-                        Frequently Asked <br />
+                        {FAQ_CONTENT.header.titlePrefix} <br />
                         <span className='bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary'>
-                            Questions
+                            {FAQ_CONTENT.header.titleHighlight}
                         </span>
                     </h2>
                     <p className='text-muted text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed'>
-                        Find answers to common questions about our feedback platform.
+                        {FAQ_CONTENT.header.description}
                     </p>
                 </motion.div>
 
@@ -162,17 +129,17 @@ export const FAQ = () => {
                     <div className='rounded-2xl border border-white/10 bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-xl p-8 md:p-12'>
                         <MessageCircle className='w-12 h-12 text-primary mx-auto mb-6' />
                         <h3 className='text-2xl md:text-3xl font-bold text-foreground mb-4'>
-                            Still have questions?
+                            {FAQ_CONTENT.supportCta.title}
                         </h3>
                         <p className='text-muted mb-8 max-w-xl mx-auto font-light'>
-                            Our support team is here to help. Get in touch and we&apos;ll respond within 24 hours.
+                            {FAQ_CONTENT.supportCta.description}
                         </p>
                         <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                             <button
-                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => document.getElementById(FAQ_CONTENT.supportCta.targetId)?.scrollIntoView({ behavior: 'smooth' })}
                                 className='group relative px-8 py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-primary-foreground font-bold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50 overflow-hidden cursor-pointer'
                             >
-                                <span className='relative z-10'>Contact Support</span>
+                                <span className='relative z-10'>{FAQ_CONTENT.supportCta.buttonText}</span>
                                 <div className='absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                             </button>
 

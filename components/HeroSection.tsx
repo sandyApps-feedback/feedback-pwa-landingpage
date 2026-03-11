@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { HERO_CONTENT } from '../constants/landing-page/hero';
 
 export const HeroSection = () => {
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 500], [0, 200]);
     const y2 = useTransform(scrollY, [0, 500], [0, -150]);
-    const [selectedImage, setSelectedImage] = useState('/images/dashboard-screenshot.png');
+    const [selectedImage, setSelectedImage] = useState(HERO_CONTENT.showcase.activities[0].image);
 
     return (
         <section className='relative min-h-screen flex items-center justify-center pt-32 overflow-hidden bg-background'>
@@ -43,36 +44,37 @@ export const HeroSection = () => {
                     </motion.div> */}
 
                     <h1 className='text-5xl md:text-8xl font-bold tracking-tight text-foreground mb-8 leading-[1.1]'>
-                        Transform Feedback <br />
+                        {HERO_CONTENT.title.prefix} <br />
                         <span className='relative whitespace-nowrap'>
                             <span className='relative z-10 bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/40'>
-                                Into Growth                            </span>
+                                {HERO_CONTENT.title.highlight}
+                            </span>
                             <span className='absolute -bottom-2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent'></span>
                         </span>
                     </h1>
 
                     <p className='mt-8 text-lg md:text-xl text-muted max-w-2xl mx-auto mb-12 font-light leading-relaxed tracking-wide'>
-                        Empower your institution with intelligent feedback collection and analysis. Make data-driven decisions that enhance learning experiences and drive continuous improvement.
+                        {HERO_CONTENT.description}
                     </p>
 
                     <div className='flex flex-col sm:flex-row gap-6 justify-center items-center'>
                         <a
-                            href='https://sapp.feedbackcert.com/'
+                            href={HERO_CONTENT.ctas.primary.href}
                             target='_blank'
                             rel='noopener noreferrer'
                             className='group relative px-8 py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-primary-foreground font-bold text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/50 overflow-hidden cursor-pointer inline-flex items-center gap-2'
                         >
                             <span className='relative z-10 flex items-center gap-2'>
-                                Start Free Trial
+                                {HERO_CONTENT.ctas.primary.text}
                                 <ArrowRight className='w-4 h-4 transition-transform group-hover:translate-x-1' />
                             </span>
                             <div className='absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                         </a>
                         <button
-                            onClick={() => document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => document.getElementById(HERO_CONTENT.ctas.secondary.targetId)?.scrollIntoView({ behavior: 'smooth' })}
                             className='px-8 py-4 rounded-full border border-white/10 text-foreground font-medium text-lg hover:bg-white/5 transition-all flex items-center gap-2 cursor-pointer'
                         >
-                            View Showcase
+                            {HERO_CONTENT.ctas.secondary.text}
                         </button>
                     </div>
                 </motion.div>
@@ -94,7 +96,7 @@ export const HeroSection = () => {
                                 <div className='w-3 h-3 rounded-full bg-[#2a2a2a]' />
                             </div>
                             <div className='text-[10px] uppercase tracking-widest text-muted font-bold'>
-                                Analytics_View_01
+                                {HERO_CONTENT.showcase.windowLabel}
                             </div>
                         </div>
 
@@ -117,15 +119,10 @@ export const HeroSection = () => {
                             {/* Sidebar List */}
                             <div className='md:col-span-4 rounded-xl border border-white/5 bg-white/[0.02] p-6'>
                                 <p className='text-muted text-xs font-bold tracking-widest uppercase mb-6'>
-                                    Recent Activity
+                                    {HERO_CONTENT.showcase.activityLabel}
                                 </p>
                                 <div className='space-y-6'>
-                                    {[
-                                        { name: 'Dashboard', image: '/images/dashboard-screenshot.png' },
-                                        { name: 'Events', image: '/images/image.png' },
-                                        { name: 'Feedback Forms', image: '/images/image copy.png' },
-                                        { name: 'Certificates', image: '/images/image copy 2.png' }
-                                    ].map((item, index) => (
+                                    {HERO_CONTENT.showcase.activities.map((item, index) => (
                                         <div
                                             key={index}
                                             onClick={() => setSelectedImage(item.image)}

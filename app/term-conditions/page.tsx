@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FileText, Shield, Scale } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { EmailLink } from '@/components/EmailLink';
 
 export default function TermsAndConditions() {
     return (
@@ -348,8 +349,8 @@ export default function TermsAndConditions() {
                                 <h3 className='text-lg font-semibold text-foreground'>10.1 Termination by You</h3>
                                 <p>
                                     You may terminate your account at any time by accessing your account settings or by contacting us at{' '}
-                                    <a href='mailto:info@sandyapps.co' className='text-primary hover:underline'>info@sandyapps.co</a>.
-                                    If you cancel a paid subscription, the cancellation will take effect at the end of the current billing period, and you will continue to have access to paid features until then.
+                                    <EmailLink />.
+                                    We offer a 14-day money-back guarantee for new subscriptions. If you are not satisfied, contact <EmailLink /> within 14 days of your first purchase for a full refund. Outside of this 14-day window, if you cancel a paid subscription, the cancellation will take effect at the end of the current billing period, and you will continue to have access to paid features until then.
                                 </p>
 
                                 <h3 className='text-lg font-semibold text-foreground mt-6'>10.2 Termination by Us</h3>
@@ -386,7 +387,7 @@ export default function TermsAndConditions() {
                                 <h3 className='text-lg font-semibold text-foreground mt-6'>11.2 Informal Resolution</h3>
                                 <p>
                                     Before filing a formal dispute, you agree to first attempt to resolve any dispute informally by contacting us at{' '}
-                                    <a href='mailto:info@sandyapps.co' className='text-primary hover:underline'>info@sandyapps.co</a>.
+                                    <EmailLink />.
                                     We will attempt to resolve the dispute informally within 30 business days.
                                 </p>
 
@@ -442,7 +443,7 @@ export default function TermsAndConditions() {
                                 <h3 className='text-lg font-semibold text-foreground mt-6'>12.6 Notices</h3>
                                 <p>
                                     All notices from us to you shall be deemed effective when sent to the email address associated with your account or posted on the Service. Notices from you to us must be sent to{' '}
-                                    <a href='mailto:info@sandyapps.co' className='text-primary hover:underline'>info@sandyapps.co</a>{' '}
+                                    <EmailLink />{' '}
                                     or by mail to 264 C Usama Road, Upper Mall, Lahore, Pakistan.
                                 </p>
 
